@@ -1,13 +1,12 @@
 var http = require('http');
-
-function logProduct(a, b) {
-  console.log(a*b);
-}
+var multiply = require('./multiply-module');
+var exponentiation = require('./exponentiation-module')
 
 function onRequest(request, response){
   response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.write('Hello world');
-  logProduct(4,5);
+  response.write(multiply.moduleMessage);
+  multiply.logProduct(3, 14);
+  exponentiation.logExponentiation(7,3);
   response.end();
 }
 
